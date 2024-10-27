@@ -4,7 +4,7 @@
         {{- if site.Copyright }}
         <span>{{ site.Copyright | markdownify }}</span>
         {{- else }}
-        <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+        <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}" {{ if site.Params.analytics.umami }}data-track-type="main-page-footer-link"{{ end }}>{{ site.Title }}</a></span>
         {{- end }}
         {{- print " · "}}
     {{- end }}
@@ -23,8 +23,8 @@
     
     <span>
         Powered by
-        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank" {{ if site.Params.analytics.umami }}data-track-type="hugo-site-link"{{ end }}>Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank" {{ if site.Params.analytics.umami }}data-track-type="papermod-github-link"{{ end }}>PaperMod</a>
     </span>
 </footer>
 {{- end }}
