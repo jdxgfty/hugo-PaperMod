@@ -9,7 +9,7 @@
 
 {{- range site.Params.customJS }}
 {{- if not site.Params.assets.disableFingerprinting }}
-{{- $script := resources.Get . | minify | fingerprint}}
+{{- $script := resources.Get . | minify | fingerprint "sha512" }}
 <script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
 {{- else }}
 {{- $script := resources.Get .}}
